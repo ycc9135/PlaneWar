@@ -1,9 +1,9 @@
 class Shape:
-    def __init__(self, x, y, dertCellList):  # [(0,-1),(1,0)]
+    def __init__(self, shapeType, x, y, dertCellList):  # [(0,-1),(1,0)]
         self.x = x
         self.y = y
         self.dertCellList = dertCellList
-
+        self.shapeType = shapeType
         self.dtop = 9999
         self.dbottom = -9999
         self.dleft = 9999
@@ -24,7 +24,7 @@ class Shape:
     def putInMap(self, map):
         cellList = self.getCellList()
         for x, y in cellList:
-            map.data[y][x][0] = 1
+            map.data[y][x][0] = self.shapeType
 
     def removeFromMap(self, map):
         cellList = self.getCellList()
@@ -54,4 +54,3 @@ class Shape:
             if xy in ocl:
                 return True
         return False
-

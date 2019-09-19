@@ -17,8 +17,16 @@ class Map:
     def draw(self):
         for i in range(self.h):
             for j in range(self.w):
-                if self.data[i][j][0] == 1:
-                    pg.draw.rect(self.screen, WHITE, (
+                d = self.data[i][j][0]
+                if d != 0:
+                    c = 1
+                    if d == 1:
+                        c = WHITE
+                    elif d == 2:
+                        c = BLUE
+                    elif d == 3:
+                        c = RED
+                    pg.draw.rect(self.screen, c, (
                         j * self.cellSize,
                         i * self.cellSize,
                         self.cellSize,
