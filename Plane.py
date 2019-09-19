@@ -1,4 +1,5 @@
 from PlaneWar.Shape import *
+from PlaneWar.Bullet import *
 
 
 class Plane(Shape):
@@ -15,19 +16,25 @@ class Plane(Shape):
             (1, -2),
             (2, -2),
         ])
+        self.bullets = []
 
     def goleft(self, map):
         if self.checkOutOfMap(self.x - 1, self.y, map) == 0:
-            self.setxy(map, self.x - 1, self.y)
+            self.setxy(self.x - 1, self.y)
 
     def goright(self, map):
         if self.checkOutOfMap(self.x + 1, self.y, map) == 0:
-            self.setxy(map, self.x + 1, self.y)
+            self.setxy(self.x + 1, self.y)
 
     def goup(self, map):
         if self.checkOutOfMap(self.x, self.y - 1, map) == 0:
-            self.setxy(map, self.x, self.y - 1)
+            self.setxy(self.x, self.y - 1)
 
     def godown(self, map):
         if self.checkOutOfMap(self.x, self.y + 1, map) == 0:
-            self.setxy(map, self.x, self.y + 1)
+            self.setxy(self.x, self.y + 1)
+
+    def fire(self):
+        bullet = Bullet()
+        bullet.setxy(self.x, self.y + self.dtop - 1)
+        self.bullets.append(bullet)

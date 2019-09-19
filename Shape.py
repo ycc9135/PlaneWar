@@ -31,11 +31,9 @@ class Shape:
         for x, y in cellList:
             map.data[y][x][0] = 0
 
-    def setxy(self, map, x, y):
-        self.removeFromMap(map)
+    def setxy(self, x, y):
         self.x = x
         self.y = y
-        self.putInMap(map)
 
     def checkOutOfMap(self, x, y, map):
         if x + self.dleft < 0:
