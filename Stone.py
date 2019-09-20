@@ -1,10 +1,11 @@
 from PlaneWar.Shape import *
 import random as r
+import random
 
 
 class Stone(Shape):
     def __init__(self):
-        super(Stone, self).__init__(1, 0, 0, [
+        super(Stone, self).__init__(random.randint(3,7), 0, 0, [
             (0, 0),
             (0, -1),
             (0, 1),
